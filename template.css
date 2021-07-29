@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700&display=swap');
+
+:root {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+/* NavNar */
+[id*='Nav_'] > a {
+    color: white !important;
+    cursor: pointer;
+}
+
+#navBar {
+    z-index: 100;
+    display: flex;
+    width: 100%;
+    height: 3.68rem;
+    box-shadow: 0 1.45px 10px #0004;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    background-color: #6EB92BFF;
+}
+
+#navBar > div {
+    display: inline-block;
+    font-size: 1.15rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: white;
+}
+
+#Nav_Back {
+    padding-left: 4.75%;
+    float: left;
+    padding-top: 0.275rem;
+    stroke: white;
+    stroke-width: 25;
+    font-size: 1.285rem !important;
+}
+
+#Nav_Title {
+    float: left;
+    margin-left: 2rem;
+    margin-right: auto;
+}
+
+#Nav_Help {
+    float: right;
+    padding-top: 0.35rem;
+    padding-right: 5.45%;
+    font-size: 1.85rem !important;
+}
+
+#fixedBackground {
+    position: relative;
+    width: 100%;
+    height: 5.68rem;
+    z-index: 20;
+    background-color: #ffff;
+}
+
+/* Header */
+#fixedHeader {
+    z-index: 50;
+    position: fixed;
+    width: 100%;
+    height: 2rem;
+    top: 3.68rem;
+    font-size: 0.74rem;
+    font-weight: 300;
+    color: #FCFDFC;
+    background-color: #589422;
+}
+
+#fixedHeaderGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 1.35fr 2fr;
+    padding-top: 0.4rem;
+}
+
+
+/* Content */
+#contentContainer {
+    position: absolute;
+    top: 5.68rem;
+    width: 100%;
+    background: #FFF;
+}
+
+.contentBlock {
+    border-bottom: #DADADA 2.5px solid;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.45fr 1.7fr;
+    grid-template-rows: 1fr 2fr;
+    grid-auto-flow: column;
+    margin-top: 9.5px;
+    margin-bottom: 6px
+}
+
+[class*='grid-'] {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.grid-Date {
+    text-align: left;
+    padding-left: 20%;
+    grid-row: span 2;
+    font-weight: 400;
+    font-size: 0.9rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.75rem;
+
+    color: #808080;
+}
+
+.grid-Type {
+    font-weight: 500;
+}
+
+.grid-Location {
+    font-size: 0.835rem;
+    font-weight: 400;
+    color: #808080;
+}
+
+.grid-Pay {
+    text-align: right;
+    padding-right: 14%;
+}
+
+.grid-PayBalance {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #808080;
+}
+
+.grid-PayAmount {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+
+#Row_Date {
+    text-align: left;
+    padding-left: 20%;
+}
+
+#Row_Type {
+    text-align: left;
+}
+
+#Row_Location {
+    text-align: left;
+}
+
+#Row_Balance {
+    padding-right: 14%;
+    text-align: right;
+}
+
+/** Unusually **/
+.grid-TypeOneC {
+    grid-row: span 2;
+    margin-bottom: 1.75rem;
+}

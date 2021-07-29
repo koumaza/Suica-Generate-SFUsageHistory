@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Generator of SuicaSFUsageHistory</title>
+        <style>
+            :root {
+                color: #000;
+            }
+            body {
+                margin: 0;
+            }
+            div.b {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                display: block;
+                background: black;
+                width: 10rem;
+                height: 4rem;
+            }
+            span {
+                user-select: none;
+                display: inline-block;
+                color: white;
+                text-align: center;
+                padding: 1rem;
+            }
+            label {
+                display: block;
+            }
+            textarea {
+                display: block;
+            }
+            div {
+                display: inline-block;
+            }
+            main {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <script type="module">
+            import { generateHTML, generateGridElements } from '../mod.js'
+            const parentDir = (arg) => {
+                return String(arg).replace(/(.*)\/(.*)\/(.*)*$/, '$1/')
+            }
+            const outputHTML = (templateHTML, templateCSS,  data) => {
+                const elem = new DOMParser().parseFromString(templateHTML, 'text/html');
+                const style = document.createElement('style')
+                style.innerHTML = templateCSS
+                elem.querySelector('html > head').appendChild(style)
+                elem.querySelector("[href='./template.css']").remove()
+                const HTML = document.querySelector('html')
+                generateHTML(generateGridElements(data), elem.getElementById('contentContainer'))
+                return elem.querySelector('html').outerHTML
+            }
+
+            const templateHTML = await (await fetch(parentDir(location.pathname) + 'template.html')).text()
+            const templateCSS = await (await fetch(parentDir(location.pathname) + 'template.css')).text()
+
+            window.convert = () => { document.getElementById('result').innerHTML = outputHTML(templateHTML, templateCSS, eval(document.getElementById('textInput').value))}
+
+        </script>
+
+        <main>
+            <div>
+            <label for="textInput">JSObj:</label>
+            <textarea placeholder="Enter Your Data" id="textInput" rows="22"></textarea></div>
+            <div>
+                <label for="result">Result:</label>
+                <textarea placeholder="Result" id="result" rows="22" disabled></textarea>
+            </div>
+        </main>
+        <a onclick="javascript:convert()"><div class="b"><span>Convert</span></div></a>
+    </body>
+</html>
