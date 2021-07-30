@@ -7,10 +7,10 @@ export const getFromCSV = (csv) => {
               Date: data[0]+'/'+data[1],
               Type: [
                   data[2],
-                  data[3]    
+                  data[4]    
               ],
               Location: [
-                  data[4],
+                  data[3],
                   data[5]
               ],
               Balance: data[6],
